@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using BilbiotekaKlas1;
+using ServerPalindromeLibrary;
 
 namespace IO_Lab2
 {
@@ -13,7 +14,12 @@ namespace IO_Lab2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello");
+            ServerPalindromeAPM serverAsync = new ServerPalindromeAPM(IPAddress.Parse("127.0.0.1"), 5544);
+            try
+            {
+                serverAsync.Start();
+            }
+            catch(System.IO.IOException e) { }
         }
     }
 }
